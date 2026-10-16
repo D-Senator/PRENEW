@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PRINIU ENERGY INTERNATIONAL - Gallery Page
+     ------------------------------------------------------------
+     Categorized image gallery with filter buttons.
+     Uses real assets from /assets folder.
+     ============================================================ -->
+<html lang="en">
+<head>
+    <!-- Document character set & responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO metadata -->
+    <meta name="description" content="Priniu Energy International - Photo gallery showcasing our oilfield operations, equipment, and team across Africa.">
+    <title>Gallery | Priniu Energy International</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=2">
+
+    <!-- Font Awesome icons (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ====================================================
+         NAVBAR - Gallery link active
+         ==================================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/Priniu-Energy-Logo1.png"
+                     alt="Priniu Energy International"
+                     class="header-logo">
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="hse.html">HSE</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+            </ul>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="equipment.html">Equipment</a>
+            <a href="hse.html">HSE</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- ====================================================
+         PAGE HEADER
+         ==================================================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Photo Gallery</h1>
+            <p>See Priniu Energy in action across Africa</p>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         GALLERY FILTER + GRID
+         ----------------------------------------------------
+         Filter categories: wireline, slickline, drilling,
+         equipment, team. JavaScript handler in scripts.js.
+         ==================================================== -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Operations</h2>
+                <p>Explore our photo gallery showcasing Priniu Energy's operations, team, and equipment across multiple African countries.</p>
+            </div>
+
+            <!-- Filter buttons -->
+            <div class="gallery-filters">
+                <button class="btn btn-primary" onclick="filterGallery('all')">All</button>
+                <button class="btn btn-outline" onclick="filterGallery('wireline')">Wireline</button>
+                <button class="btn btn-outline" onclick="filterGallery('slickline')">Slickline</button>
+                <button class="btn btn-outline" onclick="filterGallery('drilling')">Drilling</button>
+                <button class="btn btn-outline" onclick="filterGallery('equipment')">Equipment</button>
+                <button class="btn btn-outline" onclick="filterGallery('team')">Team</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         GALLERY GRID
+         ----------------------------------------------------
+         Each .gallery-item uses data-category for filtering.
+         Real asset images replace previous placeholders.
+         ==================================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="gallery-grid">
+
+                <!-- WIRELINE CATEGORY -->
+                <div class="gallery-item" data-category="wireline">
+                    <img src="assets/Electric-Wireline-&-Real-Time-Data-Monitoring.png" alt="Wireline Logging">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Wireline Logging</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="wireline">
+                    <img src="assets/tools.jpg" alt="Downhole Tools">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Downhole Tools</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="wireline">
+                    <img src="assets/ddd.jpg" alt="Formation Evaluation">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Formation Evaluation</span>
+                    </div>
+                </div>
+
+                <!-- SLICKLINE CATEGORY -->
+                <div class="gallery-item" data-category="slickline">
+                    <img src="assets/Slickline-&-Mechanical-Well-Intervention.png" alt="Slickline Operations">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Slickline Operations</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="slickline">
+                    <img src="assets/tools1.jpg" alt="Memory Logging">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Memory Logging</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="slickline">
+                    <img src="assets/tools3.jpg" alt="Tool Setting">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Tool Setting</span>
+                    </div>
+                </div>
+
+                <!-- DRILLING CATEGORY -->
+                <div class="gallery-item" data-category="drilling">
+                    <img src="assets/Drilling-Technology-&-Automation.png" alt="Drilling Rig">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Drilling Rig</span>
+</div>
+                </div>
+                <div class="gallery-item" data-category="drilling">
+                    <img src="assets/eee.jpg" alt="Directional Drilling">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Directional Drilling</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="drilling">
+                    <img src="assets/ggg.jpg" alt="Wellsite Support">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Wellsite Support</span>
+                    </div>
+                </div>
+
+                <!-- EQUIPMENT CATEGORY -->
+                <div class="gallery-item" data-category="equipment">
+                    <img src="assets/tools5.jpg" alt="Wireline Equipment">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Wireline Equipment</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="equipment">
+                    <img src="assets/tools6.jpg" alt="Pressure Control">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Pressure Control</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="equipment">
+                    <img src="assets/regional-hub.jpg" alt="Regional Hub">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Regional Hub</span>
+                    </div>
+                </div>
+
+                <!-- TEAM CATEGORY -->
+                <div class="gallery-item" data-category="team">
+                    <img src="assets/hhh.jpg" alt="Field Team">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Field Team</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="team">
+                    <img src="assets/HSE.png" alt="Technical Training">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Technical Training</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="team">
+                    <img src="assets/Contact-Us1.jpg" alt="Safety Briefing">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Safety Briefing</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         CALL TO ACTION
+         ==================================================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to See Our Work in Action?</h2>
+            <p>Contact us today to discuss your project and discover the Priniu Energy difference.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-large">Contact Us</a>
+                <a href="services.html" class="btn btn-secondary btn-large">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         FOOTER
+         ==================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/Priniu-Energy-Logo1.png"
+                             alt="Priniu Energy International"
+                             class="footer-logo">
+                    </a>
+                    <p>Reliable Oilfield Services &amp; Equipment Solutions Across Africa.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/p-energy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/PEnergyintl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="hse.html">HSE</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#wireline">Wireline Services</a></li>
+                        <li><a href="services.html#slickline">Slickline Services</a></li>
+                        <li><a href="services.html#drilling">Drilling Technology</a></li>
+                        <li><a href="services.html#completion">Completion &amp; Production</a></li>
+                        <li><a href="services.html#project">Project Management</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> 08032901396</li>
+                        <li><i class="fas fa-envelope"></i> info@priniuenergy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 45 A' Close, Federal Housing Estate<br>Abuloma Road, Port Harcourt<br>Rivers State, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Priniu Energy International. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

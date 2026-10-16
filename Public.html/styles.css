@@ -1,0 +1,1525 @@
+/* ============================================================
+   PRINIU ENERGY INTERNATIONAL
+   Premium Corporate Stylesheet
+   ----------------------------------------------------------
+   Target:    Oil & Gas Industry Website
+   Palette:   Deep Corporate Blue + Red Accent
+   Sections:  Navbar / Hero / Stats / Services / Equipment /
+              Partners / Regional / Why Choose / HSE /
+              CTA / Page Header / Gallery / Contact /
+              Footer / Responsive
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ------------------------------------------------------------
+   Centralized color, shadow, and transition tokens.
+   ============================================================ */
+:root {
+  /* Brand Colors */
+  --primary-blue:   #0B2D5C;   /* Deep corporate blue (primary)   */
+  --primary-dark:   #061a3a;   /* Darker blue for contrast/depth   */
+  --accent-red:     #D71920;   /* Brand accent red                */
+  --accent-red-dark:#b8151b;   /* Darker red for hover states      */
+
+  /* Neutrals */
+  --white:        #ffffff;
+  --light-gray:   #f5f7fa;      /* Light section background         */
+  --medium-gray:  #e8ecf1;      /* Borders / dividers               */
+  --dark-gray:    #6b7280;      /* Muted text                       */
+  --text-dark:    #1f2937;      /* Default body text                */
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px  rgba(11, 45, 92, 0.08);
+  --shadow-md: 0 4px 20px rgba(11, 45, 92, 0.12);
+  --shadow-lg: 0 8px 40px rgba(11, 45, 92, 0.15);
+
+  /* Motion */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   2. RESET & BASE
+   ------------------------------------------------------------
+   Reset margins/paddings, set base typography and links.
+   ============================================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul { list-style: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ============================================================
+   3. TYPOGRAPHY
+   ------------------------------------------------------------
+   Fluid headings using clamp() for responsive sizing.
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--primary-blue);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--dark-gray);
+}
+
+
+/* ============================================================
+   4. LAYOUT
+   ------------------------------------------------------------
+   Centered container with consistent gutters.
+   ============================================================ */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* ============================================================
+   5. BUTTONS
+   ------------------------------------------------------------
+   Reusable button variants used across the site.
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Primary - red call-to-action button */
+.btn-primary {
+  background: var(--accent-red);
+  color: var(--white);
+  border-color: var(--accent-red);
+}
+.btn-primary:hover {
+  background: var(--accent-red-dark);
+  border-color: var(--accent-red-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Secondary - transparent with white border (used on dark bg) */
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.btn-secondary:hover {
+  background: var(--white);
+  color: var(--primary-blue);
+}
+
+/* Outline - blue border, white fill (used on light bg) */
+.btn-outline {
+  background: transparent;
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+.btn-outline:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+/* Larger button variant */
+.btn-large {
+  padding: 18px 40px;
+  font-size: 1.05rem;
+}
+
+
+/* ============================================================
+   6. SECTION HELPERS
+   ------------------------------------------------------------
+   Standard section padding and header styles.
+   ============================================================ */
+.section {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-header h2 {
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+/* Red underline accent under section headings */
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--accent-red);
+  border-radius: 2px;
+}
+.section-header p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Background color modifiers */
+.bg-light { background: var(--light-gray); }
+.bg-dark  { background: var(--primary-blue); color: var(--white); }
+.bg-dark h2,
+.bg-dark h3 { color: var(--white); }
+.bg-dark p   { color: rgba(255, 255, 255, 0.85); }
+
+
+/* ============================================================
+   7. NAVBAR
+   ------------------------------------------------------------
+   Sticky top navigation with scroll shadow and mobile menu.
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+/* Logo cluster (image + brand name) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+}
+.logo-text span {
+  color: var(--accent-red);
+}
+
+/* Logo image variants */
+.header-logo {
+  max-height: 60px;
+  max-width: 220px;
+  width: auto;
+  height: auto;
+}
+.footer-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+/* Desktop navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  position: relative;
+  padding: 8px 0;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-red);
+}
+/* Animated underline on hover/active */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-red);
+  transition: var(--transition);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* CTA button in nav */
+.nav-cta {
+  background: var(--primary-blue);
+  color: var(--white) !important;
+  padding: 10px 24px;
+  border-radius: 6px;
+}
+.nav-cta:hover { background: var(--accent-red); }
+.nav-cta::after { display: none; }
+
+/* Mobile hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+}
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Mobile dropdown menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  flex-direction: column;
+  gap: 16px;
+}
+.mobile-menu.active { display: flex; }
+.mobile-menu a {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--medium-gray);
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.mobile-menu a:hover { color: var(--accent-red); }
+
+
+/* ============================================================
+   8. HERO SECTION (Home Page Only)
+   ------------------------------------------------------------
+   Full-screen hero with background image and overlay.
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(11, 45, 92, 0.85) 0%, rgba(6, 26, 58, 0.9) 100%),
+    url('assets/Hero-Banner1.png') center/cover no-repeat;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+/* Subtle decorative dot pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 120px 0 80px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: var(--white);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+.hero h1 {
+  color: var(--white);
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+.hero p {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   9. STATS / TRUST METRICS
+   ------------------------------------------------------------
+   Floating card grid above the about section.
+   ============================================================ */
+.stats-section {
+  background: var(--white);
+  padding: 60px 0;
+  margin-top: -60px;             /* Pull cards up over hero edge */
+  position: relative;
+  z-index: 2;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
+.stat-card {
+  text-align: center;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--light-gray);
+  transition: var(--transition);
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   10. ABOUT PREVIEW (Two-Column Layout)
+   ------------------------------------------------------------
+   Text on left, image on right. Reused on About page.
+   ============================================================ */
+.about-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-content h2 { margin-bottom: 24px; }
+.about-content p  { font-size: 1.1rem; line-height: 1.8; }
+
+/* Image block - either real photo or fallback placeholder */
+.about-image {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.about-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.about-image:hover img { transform: scale(1.03); }
+
+/* Fallback placeholder when no image provided */
+.about-image-placeholder {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--medium-gray) 100%);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-gray);
+}
+.about-image-placeholder i {
+  font-size: 5rem;
+  color: var(--primary-blue);
+  margin-bottom: 16px;
+}
+
+
+/* ============================================================
+   11. SERVICES GRID
+   ------------------------------------------------------------
+   5-card grid showing core oilfield services.
+   ============================================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+.service-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  border: 1px solid var(--medium-gray);
+  position: relative;
+  overflow: hidden;
+}
+/* Top accent line revealed on hover */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+.service-card h4 { margin-bottom: 16px; }
+.service-card p  { font-size: 0.95rem; margin-bottom: 20px; }
+
+/* Service detail cards on Services page - optional thumbnail */
+.service-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+/* "Learn More" link with arrow */
+.read-more {
+  color: var(--accent-red);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.read-more:hover { gap: 12px; }
+
+
+/* ============================================================
+   12. EQUIPMENT SECTION
+   ------------------------------------------------------------
+   2-column equipment category cards.
+   ============================================================ */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.equipment-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.equipment-card:hover {
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-md);
+}
+.equipment-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.equipment-card h4 i {
+  color: var(--accent-red);
+  font-size: 1.5rem;
+}
+
+/* Equipment card thumbnail image */
+.equipment-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+
+/* ============================================================
+   13. PARTNERS / REGIONAL PRESENCE
+   ------------------------------------------------------------
+   Partner cards + Africa region highlights.
+   ============================================================ */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.partner-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.partner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.partner-logo {
+  width: 100px;
+  height: 100px;
+  background: var(--light-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--primary-blue);
+  font-size: 2.5rem;
+  font-weight: 800;
+  overflow: hidden;
+}
+/* Partner logo image - fills the circular frame */
+.partner-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Regional Presence two-column layout */
+.regional-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.regional-map {
+  height: 400px;
+  background: var(--light-gray);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+/* Regional map image fills the container */
+.regional-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.regional-map i {
+  font-size: 8rem;
+  opacity: 0.3;
+}
+
+.regional-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.location-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--accent-red);
+}
+.location-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.location-card h4 i { color: var(--accent-red); }
+
+.benefits-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.benefit-item {
+  flex: 1;
+  min-width: 140px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  color: var(--dark-gray);
+}
+.benefit-item i {
+  display: block;
+  color: var(--accent-red);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   14. WHY CHOOSE US
+   ------------------------------------------------------------
+   6-card icon grid.
+   ============================================================ */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.why-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.why-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.why-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--white);
+  font-size: 1.5rem;
+}
+.why-card h4 { margin-bottom: 0; }
+
+
+/* ============================================================
+   15. CTA SECTION
+   ------------------------------------------------------------
+   Red banner used at the bottom of most pages.
+   ============================================================ */
+.cta-section {
+  background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+  text-align: center;
+  padding: 80px 0;
+}
+.cta-section h2 { color: var(--white); margin-bottom: 16px; }
+.cta-section p  {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-bottom: 32px;
+}
+/* Inverted primary button on red background */
+.cta-section .btn-primary {
+  background: var(--white);
+  color: var(--accent-red);
+  border-color: var(--white);
+}
+.cta-section .btn-primary:hover {
+  background: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
+}
+
+
+/* ============================================================
+   16. PAGE HEADER
+   ------------------------------------------------------------
+   Banner used on inner pages (About, Services, etc.)
+   ============================================================ */
+.page-header {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  padding: 160px 0 80px;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>');
+  background-size: 50px 50px;
+}
+.page-header h1 {
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+}
+.page-header p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15rem;
+  position: relative;
+}
+
+
+/* ============================================================
+   17. HSE SECTION
+   ------------------------------------------------------------
+   4-card grid for Health/Safety/Environment/Quality.
+   ============================================================ */
+.hse-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.hse-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.hse-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.hse-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--white);
+  font-size: 2rem;
+}
+.hse-card h4 { margin-bottom: 16px; }
+
+/* HSE hero image used at the top of the HSE page */
+.hse-hero-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+
+/* ============================================================
+   18. GALLERY
+   ------------------------------------------------------------
+   Responsive 3-column image grid with overlay on hover.
+   ============================================================ */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Gallery item - either real image or icon placeholder */
+.gallery-item {
+  position: relative;
+  height: 280px;
+  background: var(--light-gray);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.gallery-item:hover {
+  box-shadow: var(--shadow-lg);
+}
+/* When gallery item uses a real image */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+
+/* Icon-style placeholder (used when no image) */
+.gallery-item .gallery-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--dark-gray);
+  background: var(--light-gray);
+  transition: var(--transition);
+}
+.gallery-item .gallery-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  color: var(--primary-blue);
+}
+.gallery-item:hover .gallery-placeholder {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+.gallery-item:hover .gallery-placeholder i { color: var(--white); }
+
+/* Overlay caption that slides up on hover */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(11, 45, 92, 0.92));
+  color: var(--white);
+  transform: translateY(100%);
+  transition: var(--transition);
+  text-align: center;
+}
+.gallery-item:hover .gallery-overlay { transform: translateY(0); }
+
+
+/* ============================================================
+   19. CONTACT FORM & INFO
+   ------------------------------------------------------------
+   Two-column contact section with form on the right.
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+}
+
+/* Left info card (dark blue background) */
+.contact-info-card {
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: 48px;
+  border-radius: 20px;
+}
+.contact-info-card h3 { color: var(--white); margin-bottom: 24px; }
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.info-item-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.info-item h4 { color: var(--white); margin-bottom: 6px; font-size: 1rem; }
+.info-item p  { color: rgba(255, 255, 255, 0.85); margin: 0; }
+
+/* Right form card */
+.contact-form {
+  background: var(--white);
+  padding: 48px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+.contact-form h3 { margin-bottom: 32px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--medium-gray);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+  font-family: inherit;
+  background: var(--white);
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 45, 92, 0.1);
+}
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Map / embedded location block */
+.map-container {
+  text-align: center;
+  margin: 0 auto;
+}
+.map-container h2 { margin-bottom: 16px; }
+.map-container .location-text {
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+.map-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 16px;
+}
+.map-wrapper iframe { display: block; }
+.map-container .address {
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-top: 12px;
+}
+
+
+/* ============================================================
+   20. FOOTER
+   ------------------------------------------------------------
+   4-column footer with brand, links, services, contact.
+   ============================================================ */
+.footer {
+  background: var(--primary-dark);
+  color: var(--white);
+  padding: 80px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 20px 0;
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+.footer-social a {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+.footer-social a:hover {
+  background: var(--accent-red);
+  transform: translateY(-3px);
+}
+.footer-col h4 {
+  color: var(--white);
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+.footer-col ul li { margin-bottom: 14px; }
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+.footer-col ul li a:hover { color: var(--accent-red); }
+
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.footer-contact li i {
+  color: var(--accent-red);
+  margin-top: 4px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  text-align: center;
+}
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   21. COMPANY TIMELINE (About Page)
+   ------------------------------------------------------------
+   Vertical timeline of company milestones.
+   ============================================================ */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+/* Vertical line through the timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--medium-gray);
+}
+.timeline-item {
+  position: relative;
+  padding-bottom: 40px;
+}
+/* Red marker dot on each timeline entry */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.timeline-year {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-red);
+  margin-bottom: 8px;
+}
+.timeline-item h4 { margin-bottom: 8px; }
+
+
+/* ============================================================
+   22. MISSION / VISION CARDS (About Page)
+   ============================================================ */
+.mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.mv-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  position: relative;
+  overflow: hidden;
+}
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+}
+.mv-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.mv-card h3 i {
+  color: var(--accent-red);
+  font-size: 2rem;
+}
+
+
+/* ============================================================
+   23. CORE VALUES GRID (About Page)
+   ============================================================ */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.value-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.value-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--white);
+  font-size: 2rem;
+}
+.value-card h4 { margin-bottom: 16px; }
+
+
+/* ============================================================
+   24. MAP PLACEHOLDER (Generic)
+   ============================================================ */
+.map-placeholder {
+  height: 400px;
+  background: var(--medium-gray);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-gray);
+}
+.map-placeholder i {
+  font-size: 5rem;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+}
+
+
+/* ============================================================
+   25. CHECKLIST
+   ============================================================ */
+.checklist { margin-top: 20px; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: var(--dark-gray);
+}
+.checklist li i {
+  color: var(--accent-red);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   26. BROCHURE DOWNLOAD CARD (About Page)
+   ============================================================ */
+.brochure-card {
+  background: var(--white);
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border-left: 5px solid var(--primary-blue);
+}
+.brochure-icon { margin-bottom: 15px; }
+.brochure-icon i {
+  font-size: 50px;
+  color: var(--accent-red);
+}
+.brochure-card h3 { margin-bottom: 10px; }
+.brochure-card p  { margin-bottom: 20px; }
+
+
+/* ============================================================
+   27. LEADERSHIP TEAM (About Page)
+   ------------------------------------------------------------
+   3-column grid of executive cards. Each card shows a portrait
+   photo, name, role and short bio.
+   ============================================================ */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.leader-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--medium-gray);
+  transition: var(--transition);
+}
+.leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+/* Circular portrait frame with gradient ring */
+.leader-photo {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.leader-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+.leader-card:hover .leader-photo img {
+  transform: scale(1.05);
+}
+
+/* Red accent strip at bottom of photo */
+.leader-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-red) 100%);
+}
+
+/* Card info section */
+.leader-info {
+  padding: 28px 24px 32px;
+  text-align: center;
+}
+.leader-info h4 {
+  margin-bottom: 6px;
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+}
+.leader-role {
+  color: var(--accent-red);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+.leader-bio {
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ============================================================
+   28. RESPONSIVE BREAKPOINTS
+   ------------------------------------------------------------
+   Tablet:  <= 1024px
+   Mobile:  <= 768px
+   Small:   <= 480px
+   ============================================================ */
+
+/* Tablet - collapse to 2 columns where appropriate */
+@media (max-width: 1024px) {
+  .stats-grid         { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid        { grid-template-columns: repeat(2, 1fr); }
+  .about-preview,
+  .regional-content,
+  .contact-grid       { grid-template-columns: 1fr; }
+  .equipment-grid,
+  .hse-grid           { grid-template-columns: 1fr; }
+  .leadership-grid    { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile - single column, hamburger menu */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+
+  .hero h1         { font-size: 2.5rem; }
+  .hero p          { font-size: 1.1rem; }
+  .hero-buttons    { flex-direction: column; }
+
+  .section         { padding: 60px 0; }
+  .stats-grid      { grid-template-columns: 1fr; }
+  .services-grid,
+  .gallery-grid,
+  .why-grid,
+  .values-grid,
+  .leadership-grid { grid-template-columns: 1fr; }
+  .partners-grid   { grid-template-columns: 1fr; }
+  .footer-grid     { grid-template-columns: 1fr; }
+  .form-row        { grid-template-columns: 1fr; }
+  .contact-info-card,
+  .contact-form    { padding: 32px; }
+  .mv-grid         { grid-template-columns: 1fr; }
+  .leader-photo    { height: 360px; }
+}
+
+/* Small phones - tighten spacing */
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .btn { padding: 12px 24px; font-size: 0.9rem; }
+  .stat-card { padding: 20px; }
+}
+
+/* ============================================================
+   29. B2B REASSURANCE
+   ------------------------------------------------------------
+   ============================================================ */
+   
+   .form-note {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.form-note i {
+    color: #28a745;
+    margin-right: 6px;
+}

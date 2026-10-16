@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PRINIU ENERGY INTERNATIONAL - Contact Page
+     ------------------------------------------------------------
+     Contact information card, full inquiry form, embedded
+     Google Maps location, and regional presence section.
+     ============================================================ -->
+<html lang="en">
+<head>
+    <!-- Document character set & responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO metadata -->
+    <meta name="description" content="Contact Priniu Energy International - Get in touch with our team for oilfield services, equipment support, or partnership opportunities.">
+    <title>Contact Us | Priniu Energy International</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=2">
+
+    <!-- Font Awesome icons (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ====================================================
+         NAVBAR - Contact link active
+         ==================================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/Priniu-Energy-Logo1.png"
+                     alt="Priniu Energy International"
+                     class="header-logo">
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="equipment.html">Equipment</a></li>
+                <li><a href="hse.html">HSE</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active nav-cta">Contact Us</a></li>
+            </ul>
+
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="equipment.html">Equipment</a>
+            <a href="hse.html">HSE</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- ====================================================
+         PAGE HEADER
+         ==================================================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with Priniu Energy today</p>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         CONTACT INFO + FORM
+         ----------------------------------------------------
+         Two-column layout: dark blue info card (left) +
+         white form card (right).
+         ==================================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-grid">
+
+                <!-- LEFT: Contact information card -->
+                <div class="contact-info-card">
+                    <h3>Get In Touch</h3>
+                    <p style="margin-bottom: 32px; opacity: 0.9;">We are always ready to be reached. Contact us today to discuss your oilfield service needs and discover how Priniu Energy can support your operations.</p>
+
+                    <!-- Phone -->
+                    <div class="info-item">
+                        <div class="info-item-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>08032901396</p>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="info-item">
+                        <div class="info-item-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@priniuenergy.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Website -->
+                    <div class="info-item">
+                        <div class="info-item-icon"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <h4>Website</h4>
+                            <p>www.priniuenergy.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Head office -->
+                    <div class="info-item">
+                        <div class="info-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Head Office</h4>
+                            <p>45 A' Close, Federal Housing Estate<br>Abuloma Road<br>Port Harcourt, Rivers State<br>Nigeria</p>
+                        </div>
+                    </div>
+
+                    <!-- Working hours -->
+                    <div class="info-item">
+                        <div class="info-item-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Working Hours</h4>
+<p>24/7 Availability<br><small>We swing into action immediately when you need us.</small></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Inquiry form -->
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form action="https://formspree.io/f/mzdlrogv"
+      method="POST"
+      id="contactForm">
+
+    <input type="hidden"
+           name="_subject"
+           value="New Enquiry from Priniu Energy Website">
+
+    <input type="hidden"
+           name="_captcha"
+           value="false">
+
+    <input type="hidden"
+           name="_next"
+           value="https://www.priniuenergy.com/thank-you.html">
+                        <div class="form-row">
+                            <!-- Name -->
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            </div>
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Phone -->
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+                            <!-- Company -->
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Enter your company name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <!-- Inquiry type -->
+                            <div class="form-group">
+                                <label for="inquiryType">Inquiry Type</label>
+                                <select id="inquiryType" name="inquiryType">
+                                    <option value="">Select inquiry type</option>
+                                    <option value="business">Business Inquiry</option>
+                                    <option value="equipment">Equipment Request</option>
+                                    <option value="service">Service Inquiry</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="career">Career Inquiry</option>
+                                    <option value="general">General Question</option>
+                                </select>
+                            </div>
+                            <!-- Service interest -->
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="wireline">Electric Wireline Services</option>
+                                    <option value="slickline">Slickline Services</option>
+                                    <option value="drilling">Drilling Technology</option>
+                                    <option value="completion">Completion &amp; Production</option>
+                                    <option value="project">Project Management</option>
+                                    <option value="equipment">Equipment Solutions</option>
+                                    <option value="general">General Inquiry</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit"
+                        
+        class="btn btn-primary"
+        style="width:100%;">
+
+    <i class="fas fa-paper-plane"></i>
+    Send Message
+
+</button>
+            <p class="form-note">
+    <i class="fas fa-lock"></i>
+    Your information is kept confidential and will only be used to respond to your enquiry.
+</p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         LOCATION MAP (embedded Google Maps iframe)
+         ==================================================== -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="map-container">
+                <h2>Our Location</h2>
+                <p class="location-text">Based in Port Harcourt, Rivers State, with strategic regional hubs serving clients across Nigeria.</p>
+
+                <div class="map-wrapper">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1987.9301759532232!2d7.03118952943824!3d4.794009260329464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%E2%80%98A%E2%80%99%20Close%2045%20Federal%20Housing%20Estate%20Abuloma%20Road%2C%20Port%20Harcourt%2C%20Rivers%20State.!5e0!3m2!1sen!2sng!4v1782173133065!5m2!1sen!2sng"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Priniu Energy International - Head Office Location">
+                    </iframe>
+                </div>
+
+                <p class="address">45 A' Close, Federal Housing Estate, Abuloma Road, Port Harcourt, Rivers State</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         REGIONAL PRESENCE (Lagos & Port-Gentil hubs)
+         ==================================================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Regional Presence</h2>
+                <p>Serving clients across multiple African countries from our regional hubs</p>
+            </div>
+
+            <div class="equipment-grid" style="max-width: 900px; margin: 0 auto;">
+                <div class="equipment-card" style="border-left: 4px solid var(--accent-red);">
+                    <img src="assets/regional-hub.jpg"
+                         alt="Lagos Regional Hub"
+                         class="equipment-thumb">
+                    <h4><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</h4>
+                    <p>Primary Equipment Stocking Hub serving West Africa operations</p>
+                </div>
+                <div class="equipment-card" style="border-left: 4px solid var(--accent-red);">
+                    <img src="assets/procurement.jpg"
+                         alt="Port-Gentil Regional Hub"
+                         class="equipment-thumb">
+                    <h4><i class="fas fa-map-marker-alt"></i> Port-Gentil, Gabon</h4>
+                    <p>Regional Distribution Hub for Central Africa operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================================================
+         FOOTER
+         ==================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="assets/Priniu-Energy-Logo1.png"
+                             alt="Priniu Energy International"
+                             class="footer-logo">
+                    </a>
+                    <p>Reliable Oilfield Services &amp; Equipment Solutions Across Africa.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/p-energy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/PEnergyintl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="hse.html">HSE</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="services.html#wireline">Wireline Services</a></li>
+                        <li><a href="services.html#slickline">Slickline Services</a></li>
+                        <li><a href="services.html#drilling">Drilling Technology</a></li>
+                        <li><a href="services.html#completion">Completion &amp; Production</a></li>
+                        <li><a href="services.html#project">Project Management</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> 08032901396</li>
+                        <li><i class="fas fa-envelope"></i> info@priniuenergy.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 45 A' Close, Federal Housing Estate<br>Abuloma Road, Port Harcourt<br>Rivers State, Nigeria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Priniu Energy International. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
